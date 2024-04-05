@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 struct Pessoa
 {
@@ -6,26 +7,40 @@ struct Pessoa
   int Idade;
   float Altura;
   float Peso;
-};
+} typedef Pessoa;
 
 int main()
 {
-  struct Pessoa X;
-  printf("%d\n", sizeof(X));
+  Pessoa X = CadastrarPessoa();
 
+  ExibirPessoa(X);
+
+    return 0;
+}
+
+Pessoa CadastrarPessoa()
+{
+
+  Pessoa P;
   printf("Nome: ");
-  scanf("%s", X.Nome);
+  scanf("%s", P.Nome);
 
   printf("Idade: ");
-  scanf("%d", &X.Idade);
+  scanf("%d", &P.Idade);
 
   printf("Altura: ");
-  scanf("%f", &X.Altura);
+  scanf("%f", &P.Altura);
 
   printf("Peso: ");
-  scanf("%f", &X.Peso);
+  scanf("%f", &P.Peso);
+};
 
+void ExibirPessoa(Pessoa X)
+{
   printf("%s %d %.2f %.2f\n", X.Nome, X.Idade, X.Altura, X.Peso);
+};
 
-  return 0;
+float CalcularIMC(Pessoa X)
+{
+  float IMC = X.Peso / pow(X.Altura, 2);
 }
