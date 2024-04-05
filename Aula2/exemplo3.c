@@ -2,20 +2,21 @@
 #include <math.h>
 #include <string.h>
 
-struct Pessoa
+typedef struct Pessoa
 {
   char Nome[100];
   int Idade;
   float Altura;
   float Peso;
-} typedef Pessoa;
+} Pessoa;
 
 Pessoa CadastrarPessoa();
 void ExibirPessoa(Pessoa X);
 float CalcularIMC(Pessoa X);
 void FazendoAniversario(Pessoa *X);
+// void CadastrarPessoav2(Pessoa *X);
 
-void main()
+int main()
 {
   Pessoa X = CadastrarPessoa();
 
@@ -25,7 +26,7 @@ void main()
 
   ExibirPessoa(X);
 
-  printf("O IMC de e igual a %.3f", CalcularIMC(X));
+  printf("O IMC de é igual à %.3f\n", CalcularIMC(X));
 
   return 0;
 }
@@ -35,7 +36,7 @@ Pessoa CadastrarPessoa()
 
   Pessoa P;
   printf("Nome: ");
-  gets(P.Nome);
+  fgets(P.Nome, 100, stdin);
 
   printf("Idade: ");
   scanf("%d", &P.Idade);
@@ -45,6 +46,8 @@ Pessoa CadastrarPessoa()
 
   printf("Peso: ");
   scanf("%f", &P.Peso);
+
+  return P;
 }
 
 void ExibirPessoa(Pessoa X)
