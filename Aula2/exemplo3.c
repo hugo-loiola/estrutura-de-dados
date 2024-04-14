@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-
 typedef struct Pessoa
 {
   char Nome[100];
