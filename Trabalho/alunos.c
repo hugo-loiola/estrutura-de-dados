@@ -8,19 +8,22 @@ typedef struct
   char Numero[20];
   char Curso[20];
   float Nota1, Nota2, Media;
-  char Situacao[20];
+  char Situacao1;
 } Aluno;
 
-void calcularMedia(float nota1, float nota2, float *media, char *situacao[20])
+void calcularMedia(float nota1, float nota2, float *media, char *situacao)
 {
   *media = (nota1 + nota2) / 2.0;
-  *situacao = (*media >= 7.0) ? "Aprovado" : "Reprovado";
+  *situacao = (*media >= 7.0) ? 'A' : 'R';
 }
 
 int main()
 {
   FILE *entrada, *saida;
   Aluno X;
+  char Situacao2[10];
+  char Aprovado[] = "Aprovado";
+  char Reprovado[] = "Reprovado";
 
   entrada = fopen("DadosEntrada.csv", "r");
   saida = fopen("SituacaoFinal.csv", "w"); // "r" abre o arquivo para leitura
@@ -38,8 +41,16 @@ int main()
   while (fscanf(entrada, "%[^,],(%[^)]) %*1[^(] %*[^,],%[^,],%f,%f", X.Nome, X.Numero, X.Curso, &X.Nota1, &X.Nota2) !=
          EOF)
   {
-    calcularMedia(X.Nota1, X.Nota2, &X.Media, (char **)&X.Situacao);
-    fprintf(saida, "%s,%.2f,%s", X.Nome, X.Media, X.Situacao);
+    calcularMedia(X.Nota1, X.Nota2, &X.Media, &X.Situacao1);
+    if (X.Situacao1 == 'A')
+    {
+      strcpy(Situacao2, Aprovado);
+    }
+    else
+    {
+      strcpy(Situacao2, Reprovado);
+    }
+    fprintf(saida, "%s,%.2f,%s", X.Nome, X.Media, Situacao2);
   }
 
   printf("Terminado!\n");
