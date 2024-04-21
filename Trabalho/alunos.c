@@ -25,8 +25,9 @@ int main()
   char Aprovado[] = "Aprovado";
   char Reprovado[] = "Reprovado";
 
-  entrada = fopen("DadosEntrada.csv", "r");
-  saida = fopen("SituacaoFinal.csv", "w"); // "r" abre o arquivo para leitura
+  entrada = fopen("DadosEntrada.csv", "r"); // "r" abre o arquivo para leitura
+  saida = fopen("SituacaoFinal.csv", "w");  // "w" abre o arquivo para a escrita
+  // Mensagem de erro
   if (entrada == NULL || saida == NULL)
   {
     printf("O arquivo nao pode ser aberto!\n");
@@ -34,14 +35,16 @@ int main()
   }
   // Descartar a primeira linha do arquivo de entrada
   fscanf(entrada, "%*[^\n]");
-  fgetc(entrada); // Lê e descarta o caractere de nova linha
+  // Lê e descarta o caractere de nova linha
+  fgetc(entrada);
   // Escrever o cabeçalho no arquivo de saída
-  fprintf(saida, "Nome,Media,Situação\n");
+  fprintf(saida, "Nome,Média,Situação\n");
   // Ler DadosEntrada e escrever SituacaoFinal
   while (fscanf(entrada, "%[^,],(%[^)]) %*1[^(] %*[^,],%[^,],%f,%f", X.Nome, X.Numero, X.Curso, &X.Nota1, &X.Nota2) !=
          EOF)
   {
     calcularMedia(X.Nota1, X.Nota2, &X.Media, &X.Situacao1);
+    // Fazendo a copia da string situcação
     if (X.Situacao1 == 'A')
     {
       strcpy(Situacao2, Aprovado);
