@@ -38,7 +38,7 @@ int main()
   // Lê e descarta o caractere de nova linha
   fgetc(entrada);
   // Escrever o cabeçalho no arquivo de saída
-  fprintf(saida, "Nome,Média,Situação\n");
+  fprintf(saida, "Nome,Media,Situacao\n");
   // Ler DadosEntrada e escrever SituacaoFinal
   while (fscanf(entrada, "%[^,],(%[^)]) %*1[^(] %*[^,],%[^,],%f,%f", X.Nome, X.Numero, X.Curso, &X.Nota1, &X.Nota2) !=
          EOF)
