@@ -74,7 +74,9 @@ x_a & y_a & 1 & x_a & y_a \\
 x_b & y_b & 1 & x_b & y_b\\
 x_c & y_c & 1 & x_c & y_c\\
 \end{array}\right) =
+$$
 
+$$
 \left(\begin{array}{cc}
 1 & 2 & 1 & 1 & 2 \\
 3 & 8 & 1 & 3 & 8\\
