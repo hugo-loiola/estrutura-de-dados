@@ -22,8 +22,8 @@ int main()
   FILE *entrada, *saida;
   Aluno X;
   char Situacao2[10];
-  char Aprovado[] = "Aprovado";
-  char Reprovado[] = "Reprovado";
+  char Aprovado[] = "APROVADO";
+  char Reprovado[] = "REPROVADO";
 
   entrada = fopen("DadosEntrada.csv", "r"); // "r" abre o arquivo para leitura
   saida = fopen("SituacaoFinal.csv", "w");  // "w" abre o arquivo para a escrita
