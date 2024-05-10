@@ -11,14 +11,23 @@ Fracao criarFracao(int N, int D);
 float calcularDecimal(Fracao f);
 Fracao somarFracoes(Fracao f, Fracao g);
 Fracao subtrairFracao(Fracao f, Fracao g);
+Fracao multiplicarFracao(Fracao f, Fracao g);
+Fracao dividirFracao(Fracao f, Fracao g);
 void mostrarFracao(Fracao f);
 
 int main()
 {
-    Fracao X = criarFracao(5, 6);
-    Fracao Y = criarFracao(4, 9);
+    Fracao X = criarFracao(3, 4);
+    Fracao Y = criarFracao(1, 9);
     Fracao Soma = somarFracoes(X, Y);
+    Fracao Subtracao = subtrairFracao(X, Y);
+    Fracao Multiplicacao = multiplicarFracao(X, Y);
+    Fracao Divisao = dividirFracao(X, Y);
     mostrarFracao(Soma);
+    mostrarFracao(Subtracao);
+    mostrarFracao(Multiplicacao);
+    mostrarFracao(Divisao);
+
     return 0;
 }
 
@@ -51,7 +60,23 @@ Fracao subtrairFracao(Fracao f, Fracao g)
     return (R);
 }
 
+Fracao multiplicarFracao(Fracao f, Fracao g)
+{
+    Fracao R;
+    R.Num = f.Num * g.Num;
+    R.Den = f.Den * g.Den;
+    return (R);
+}
+
+Fracao dividirFracao(Fracao f, Fracao g)
+{
+    Fracao R;
+    R.Num = f.Num * g.Den;
+    R.Den = f.Den * g.Num;
+    return (R);
+}
+
 void mostrarFracao(Fracao f)
 {
-    printf("%d/%d", f.Num, f.Den);
+    printf("%d/%d\n", f.Num, f.Den);
 }
