@@ -6,19 +6,27 @@ typedef struct
     int Num;
     int Den;
 } Fracao;
+
 // Funçoes
 Fracao criarFracao(int N, int D);
+
 float calcularDecimal(Fracao f);
+
 Fracao somarFracoes(Fracao f, Fracao g);
+
 Fracao subtrairFracao(Fracao f, Fracao g);
+
 Fracao multiplicarFracao(Fracao f, Fracao g);
+
 Fracao dividirFracao(Fracao f, Fracao g);
+
 void mostrarFracao(Fracao f);
+
 // Main
 int main()
 {
     Fracao X = criarFracao(3, 4);
-    Fracao Y = criarFracao(1, 9);
+    Fracao Y = criarFracao(1, 4);
     Fracao Soma = somarFracoes(X, Y);
     Fracao Subtracao = subtrairFracao(X, Y);
     Fracao Multiplicacao = multiplicarFracao(X, Y);
@@ -47,16 +55,34 @@ float calcularDecimal(Fracao f)
 Fracao somarFracoes(Fracao f, Fracao g)
 {
     Fracao R;
-    R.Num = (f.Num * g.Den) + (g.Num * f.Den);
-    R.Den = f.Den * g.Den;
+
+    if (f.Den != g.Den)
+    {
+        R.Num = (f.Num * g.Den) + (g.Num * f.Den);
+        R.Den = f.Den * g.Den;
+    }
+    else
+    {
+        R.Num = f.Num + g.Num;
+        R.Den = f.Den;
+    }
     return (R);
 }
 
 Fracao subtrairFracao(Fracao f, Fracao g)
 {
     Fracao R;
-    R.Num = (f.Num * g.Den) - (g.Num * f.Den);
-    R.Den = f.Den * g.Den;
+
+    if (g.Den != f.Den)
+    {
+        R.Num = (f.Num * g.Den) - (g.Num * f.Den);
+        R.Den = f.Den * g.Den;
+    }
+    else
+    {
+        R.Num = f.Num - g.Num;
+        R.Den = f.Den;
+    }
     return (R);
 }
 
