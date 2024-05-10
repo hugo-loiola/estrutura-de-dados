@@ -14,7 +14,7 @@ Fracao subtrairFracao(Fracao f, Fracao g);
 Fracao multiplicarFracao(Fracao f, Fracao g);
 Fracao dividirFracao(Fracao f, Fracao g);
 void mostrarFracao(Fracao f);
-
+// Main
 int main()
 {
     Fracao X = criarFracao(3, 4);
