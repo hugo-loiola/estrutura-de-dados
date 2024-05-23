@@ -1,108 +1,70 @@
+//
+// Created by hugo on 22/05/24.
+//
 #include <stdio.h>
-#include <stdlib.h>
+#include "fracao.h"
 
-typedef struct
-{
-    int Num;
-    int Den;
-} Fracao;
-
-// Funçoes
-Fracao criarFracao(int N, int D);
-
-float calcularDecimal(Fracao f);
-
-Fracao somarFracoes(Fracao f, Fracao g);
-
-Fracao subtrairFracao(Fracao f, Fracao g);
-
-Fracao multiplicarFracao(Fracao f, Fracao g);
-
-Fracao dividirFracao(Fracao f, Fracao g);
-
-void mostrarFracao(Fracao f);
-
-// Main
-int main()
-{
-    Fracao X = criarFracao(3, 4);
-    Fracao Y = criarFracao(1, 4);
-    Fracao Soma = somarFracoes(X, Y);
-    Fracao Subtracao = subtrairFracao(X, Y);
-    Fracao Multiplicacao = multiplicarFracao(X, Y);
-    Fracao Divisao = dividirFracao(X, Y);
-    mostrarFracao(Soma);
-    mostrarFracao(Subtracao);
-    mostrarFracao(Multiplicacao);
-    mostrarFracao(Divisao);
-
-    return 0;
-}
-
-Fracao criarFracao(int N, int D) // Analogia ao método construtor do java
+Fracao criarFracao(int numerador, int denominador)
 {
     Fracao f;
-    f.Num = N;
-    f.Den = D;
-    return (f);
+    f.numerador = numerador;
+    f.denominador = denominador;
+    return f;
 }
 
-float calcularDecimal(Fracao f)
+// Função para somar duas frações
+Fracao somarFracao(Fracao a, Fracao b)
 {
-    return (f.Num / f.Den);
+    Fracao resultado;
+    resultado.numerador = (a.numerador * b.denominador) + (b.numerador * a.denominador);
+    resultado.denominador = a.denominador * b.denominador;
+    return resultado;
 }
 
-Fracao somarFracoes(Fracao f, Fracao g)
+// Função para subtrair duas frações
+Fracao subtrairFracao(Fracao a, Fracao b)
 {
-    Fracao R;
+    Fracao resultado;
+    resultado.numerador = (a.numerador * b.denominador) - (b.numerador * a.denominador);
+    resultado.denominador = a.denominador * b.denominador;
+    return resultado;
+}
 
-    if (f.Den != g.Den)
+// Função para multiplicar duas frações
+Fracao multiplicarFracao(Fracao a, Fracao b)
+{
+    Fracao resultado;
+    resultado.numerador = a.numerador * b.numerador;
+    resultado.denominador = a.denominador * b.denominador;
+    return resultado;
+}
+
+// Função para dividir duas frações
+Fracao dividirFracao(Fracao a, Fracao b)
+{
+    Fracao resultado;
+    resultado.numerador = a.numerador * b.denominador;
+    resultado.denominador = a.denominador * b.numerador;
+    return resultado;
+}
+
+// Função para simplificar uma fração
+Fracao simplificarFracao(Fracao f)
+{
+    int gcd = mdc(f.numerador, f.denominador);
+    f.numerador /= gcd;
+    f.denominador /= gcd;
+    return f;
+}
+
+// Função para calcular o máximo divisor comum (MDG) de dois números
+int mdc(int a, int b)
+{
+    while (b != 0)
     {
-        R.Num = (f.Num * g.Den) + (g.Num * f.Den);
-        R.Den = f.Den * g.Den;
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    else
-    {
-        R.Num = f.Num + g.Num;
-        R.Den = f.Den;
-    }
-    return (R);
-}
-
-Fracao subtrairFracao(Fracao f, Fracao g)
-{
-    Fracao R;
-
-    if (g.Den != f.Den)
-    {
-        R.Num = (f.Num * g.Den) - (g.Num * f.Den);
-        R.Den = f.Den * g.Den;
-    }
-    else
-    {
-        R.Num = f.Num - g.Num;
-        R.Den = f.Den;
-    }
-    return (R);
-}
-
-Fracao multiplicarFracao(Fracao f, Fracao g)
-{
-    Fracao R;
-    R.Num = f.Num * g.Num;
-    R.Den = f.Den * g.Den;
-    return (R);
-}
-
-Fracao dividirFracao(Fracao f, Fracao g)
-{
-    Fracao R;
-    R.Num = f.Num * g.Den;
-    R.Den = f.Den * g.Num;
-    return (R);
-}
-
-void mostrarFracao(Fracao f)
-{
-    printf("%d/%d\n", f.Num, f.Den);
+    return a;
 }
