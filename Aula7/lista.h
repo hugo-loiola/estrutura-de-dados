@@ -21,4 +21,7 @@ void inserirItem(Lista *L, Item E);
 
 void exibirLista(Lista *L);
 
+void excluirItemFinal(Lista *L);
+
+void excluirItem(Lista *L, int Posicao);
 #endif

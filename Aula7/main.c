@@ -28,6 +28,22 @@ int main()
 
     exibirLista(A);
 
+    printf("Teste N°4:\n");
+    printf("Inserindo em uma forma diferente:\n");
+    inserirItem(A, (Item){88});
+    exibirLista(A);
+
+    printf("Teste N°5:\n");
+    printf("Excluindo o último elemento:\n");
+    excluirItemFinal(A);
+    exibirLista(A);
+
+    printf("Teste N°6:\n");
+    printf("Excluindo um elemento específico na lista:\n");
+    excluirItem(A, 0);
+    exibirLista(A);
+
+    // Liberar na memória o array
     free(A->Array);
     free(A);
     return 0;

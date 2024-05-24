@@ -42,3 +42,22 @@ void exibirLista(Lista *L)
         printf("%d ", L->Array[i].Chave);
     }
 }
+
+void excluirItemFinal(Lista *L)
+{
+    L->Tamanho--;
+}
+
+void excluirItem(Lista *L, int Posicao)
+{
+    if (Posicao < 0 || Posicao >= L->Tamanho)
+    {
+        printf("ERRO: A posição a ser excluida é invalida!\n");
+        return;
+    }
+    for (int i = Posicao; i < L->Tamanho; i++)
+    {
+        L->Array[i] = L->Array[i + 1];
+    }
+    L->Tamanho--;
+}
