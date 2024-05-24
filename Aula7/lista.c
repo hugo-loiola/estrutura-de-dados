@@ -26,4 +26,11 @@ Lista *criarLista(int N)
 
 void inserirItem(Lista *L, Item E)
 {
+    if (L->Tamanho == L->Capacidade)
+    {
+        printf("ERRO: A lista está cheia!\n");
+        return;
+    }
+    L->Array[L->Tamanho] = E;
+    L->Tamanho++;
 }
