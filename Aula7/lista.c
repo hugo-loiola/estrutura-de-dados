@@ -34,3 +34,11 @@ void inserirItem(Lista *L, Item E)
     L->Array[L->Tamanho] = E;
     L->Tamanho++;
 }
+
+void exibirLista(Lista *L)
+{
+    for (int i = 0; i < L->Tamanho; i++)
+    {
+        printf("%d ", L->Array[i].Chave);
+    }
+}

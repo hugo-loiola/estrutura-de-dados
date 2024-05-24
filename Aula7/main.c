@@ -23,6 +23,11 @@ int main()
     inserirItem(A, E5);
     printf("O tamanho da lista passou a ser %d.\n", A->Tamanho);
 
+    printf("Teste N°3:\n");
+    printf("Exibindo elementos da lista:\n");
+
+    exibirLista(A);
+
     free(A->Array);
     free(A);
     return 0;

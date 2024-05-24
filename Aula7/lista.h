@@ -19,4 +19,6 @@ Lista *criarLista(int N);
 
 void inserirItem(Lista *L, Item E);
 
+void exibirLista(Lista *L);
+
 #endif
