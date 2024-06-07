@@ -9,13 +9,13 @@ typedef struct
 
 typedef struct
 {
-    int N;
-    int T;
-    Cidade *C;
+    int N;     // Número de cidades
+    int T;     // Comprimento da estrada
+    Cidade *C; // Vetor de cidades
 } Estrada;
 
-Estrada *getEstrada(const char *nomeArquivo);
-double calcularMenorVizinhanca(const char *nomeArquivo);
-char *cidadeMenorVizinhanca(const char *nomeArquivo);
+Estrada *getEstrada(const char *nomeArquivo);            // Inicializa cidades no TAD indicado acima
+double calcularMenorVizinhanca(const char *nomeArquivo); // Retorna a menor vizinhanca
+char *cidadeMenorVizinhanca(const char *nomeArquivo);    // Retorna a cidade que tem menor vizinhanca
 
 #endif
