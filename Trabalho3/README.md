@@ -9,6 +9,7 @@
 ### Exemplo
 
 ### Arquivo cidades.h
+
 ```c
 #ifndef CIDADES_H
 #define CIDADES_H
@@ -32,4 +33,9 @@ char *cidadeMenorVizinhanca(const char *nomeArquivo);    // Retorna a cidade que
 
 #endif
 ```
+
 ### Observação
+
+Você deverá entregar apenas o arquivo cidades.c, contendo as implementações das funções cujos protótipos
+foram definidos em cidades.h. Ademais, a não observância dos requisitos presentes neste documento pode
+implicar em decréscimo de nota.
