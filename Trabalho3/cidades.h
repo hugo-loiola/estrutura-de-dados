@@ -15,7 +15,7 @@ typedef struct
 } Estrada;
 
 Estrada *getEstrada(const char *nomeArquivo);            // Inicializa cidades no TAD indicado acima
-double calcularMenorVizinhanca(const char *nomeArquivo); // Retorna a menor vizinhanca
-char *cidadeMenorVizinhanca(const char *nomeArquivo);    // Retorna a cidade que tem menor vizinhanca
+double calcularMenorVizinhanca(const char *nomeArquivo); // Retorna a menor vizinhança
+char *cidadeMenorVizinhanca(const char *nomeArquivo);    // Retorna a cidade que tem menor vizinhança
 
 #endif
